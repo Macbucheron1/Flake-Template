@@ -27,7 +27,6 @@ The linting should work correctly
 ### 0. Make sur you are correclty set
 
 To do this see [First setup](./DEV.md#first-setup).
-
 ### 1. Make your change in `src/` 
 
 Make some change in the files.
