@@ -16,8 +16,9 @@
     pyEnv = py.withPackages (ps: with ps; [
     ]);
 
+
+    # Ajoutes tes paquets de développement ici :
     devPackages = with pkgs; [
-      bashInteractive   # évite les soucis de shopt/progcomp dans VS Code
     ];
 
   in {

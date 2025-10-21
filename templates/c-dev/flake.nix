@@ -8,14 +8,41 @@
     system = "x86_64-linux";
     pkgs   = import nixpkgs { inherit system; };
     name   = "C-Programming";
+    version = "1.0.0";
+    src = ./.;
 
+    # Ajoutes tes paquets de développement ici :
     devPackages = with pkgs; [
       gcc
       clang-tools
-      bashInteractive   # évite les soucis de shopt/progcomp dans VS Code
+      cmake
     ];
     
   in {
+    packages.${system} = {
+      ${name} = pkgs.stdenv.mkDerivation {
+        inherit name version src;
+        nativeBuildInputs = [ pkgs.cmake ];
+        buildInputs = devPackages;
+        dontStrip = true;
+
+        configurePhase = ''
+          cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+        '';
+
+        buildPhase = ''
+          cmake --build build
+        '';
+
+        installPhase = ''
+          cmake --install build --prefix $out
+        '';
+      };
+      
+      default = self.packages.${system}.${name};
+    };
+
+
     devShells.${system}.default = pkgs.mkShell {
       packages = devPackages;
       shellHook = ''
