@@ -14,7 +14,7 @@ Change the value of `project(<project_name>)`.
 
 > [!WARNING]
 > The goal here is to setup the linting correctly in VS-Code.
-> Make sur you have the clangd extension. 
+> Make sure you have the clangd extension. 
 
 1. Place yourself at the `flake.nix` level
 2. Use `nix develop` to open a nix shell
@@ -24,7 +24,7 @@ The linting should work correctly
 
 ## Development Workflow 
 
-### 0. Make sur you are correclty set
+### 0. Make sur you are correctly set
 
 To do this see [First setup](./DEV.md#first-setup).
 ### 1. Make your change in `src/` 

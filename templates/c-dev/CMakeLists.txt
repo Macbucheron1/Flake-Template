@@ -12,8 +12,11 @@ add_compile_options(-Wall -Wextra)
 # Output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-# Collect all source files automatically
-file(GLOB SOURCES "src/*.c")
+# Collect all source files
+set(SOURCES
+    src/main.c
+    src/file1.c
+)
 
 # Executable
 add_executable(${PROJECT_NAME} ${SOURCES})

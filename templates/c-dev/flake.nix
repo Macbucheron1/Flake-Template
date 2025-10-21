@@ -23,7 +23,6 @@
       ${name} = pkgs.stdenv.mkDerivation {
         inherit name version src;
         nativeBuildInputs = [ pkgs.cmake ];
-        buildInputs = devPackages;
         dontStrip = true;
 
         configurePhase = ''
